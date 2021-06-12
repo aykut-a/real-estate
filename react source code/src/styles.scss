@@ -1,0 +1,293 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif;
+}
+
+:root{
+  --sky: #54b4bc;
+  --gray: #f0f0f0;
+  --granite: #515151;
+  --line: #d1d1d1;
+}
+
+body{
+  background-color: var(--gray);
+}
+
+@mixin centered{
+  display: flex;
+  justify-content:center;
+  align-items: center;
+}
+
+div.horizontal-line{
+  width:100%;
+  height:1px;
+  background-color: var(--line);
+  margin: 1rem 0 0.8rem 0;
+}
+
+div.horizontal-line-junior{
+  width:90%;
+  height:10px;
+  background-color: var(--line);
+  margin: 0;
+  transform: scaleY(.1);
+}
+
+div.flats-component{
+  display:flex;
+  width:100%;
+  min-height: 100vh;  
+}
+
+// Flats //
+
+div.results{
+  flex:1;
+  margin-right: 350px;
+  margin-top: 1.5rem; 
+  margin-bottom: 1rem;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+// Filter //
+
+div.side-filter{
+  width:350px; 
+  height:100vh;
+  padding: 3rem 2rem;
+  position: fixed; 
+  right: 0;
+  background-color: white;
+}
+
+p.grande-title{
+  color: var(--sky);
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+p.tall-title{
+  color: var(--sky);
+  font-weight: bold;
+  margin-bottom:1rem;
+  font-size:17px;
+}
+
+// Radio Button Container and Component //
+
+div.radio-button-container{
+  width:100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+div.radio-button-component{
+  width:50%;
+  display:flex;
+  align-items:center;
+  justify-content:start;
+  margin-bottom: 0.5rem;
+
+  p{
+    margin-left: 5px;
+    color: var(--granite);
+    cursor: pointer;
+  }
+}
+
+div.radio-button-self{
+  width:1.4rem;
+  height:1.4rem;
+  border: 1px solid var(--sky);
+  border-radius:50%;
+  cursor: pointer;
+  @include centered;
+}
+
+div.inner{
+  width:0.8rem;
+  height:0.8rem;
+  background-color:var(--sky);
+  border-radius:100%;
+}
+
+// Single Flat Component // 
+
+div.single-flat{
+  width:235px; 
+  @include centered;
+  padding-bottom: 6px;
+  flex-direction: column;
+  background-color: white;
+  margin-bottom: 1.5rem ;
+  margin: 0 20px 1.5rem 10px;
+}
+
+img.flat-image{
+  width:100%;
+  height: 130px;
+}
+
+p.flat-title{
+  text-align: start;
+  color: var(--sky);
+  font-weight: bold;
+  width:90%;
+  padding: 5px 0;
+}
+
+div.attribute{
+  display: flex;
+  justify-content:space-between;
+  width:90%;
+  font-size:14px;
+  p{
+    font-size: 13px;
+    color: var(--granite);
+  }
+}
+
+span.square-meter{
+  font-size: 14px;
+}
+
+// Loading Spinner // 
+
+div.loading-spinner{
+  width:200px;
+  height:200px;
+  position: relative;
+  animation: roundAndRound 300ms infinite linear;
+}
+
+div.outer-disk{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: var(--sky);
+  @include centered;
+}
+
+div.inner-disk{
+  width: 80%;
+  height: 80%;
+  border-radius:50%;
+  background-color: var(--gray);
+}
+
+div.upper-left-transparent{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 50%;
+  background-color:var(--gray);
+}
+
+div.lower-right-transparent{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  height: 50%;
+  background-color:var(--gray);
+}
+
+@keyframes roundAndRound {
+  0%{
+    transform:rotate(0deg)
+  }
+  100%{
+    transform:rotate(180deg)
+  }
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #ffffff; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--sky); 
+  border-radius:1.2rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(1, 141, 151); 
+}
+
+// Back to the Top Button //
+
+button.to-the-top-button{
+  width:100%;
+  background-color:var(--sky);
+  color: white;
+  border: none;
+  padding: 5px 0;
+  margin: 1rem 0;
+  cursor: pointer;
+  font-size:16px;
+  transition: opacity 200ms;
+}
+
+button.to-the-top-button:hover{
+  opacity: 0.7;
+}
+
+p.error-message{
+  font-size:20px;
+  margin-top:2rem;
+}
+
+// Media Queries // 
+
+@media (max-width:992px){
+  div.side-filter{
+    width:200px;
+  }
+  div.radio-button-container{
+    flex-direction: column;
+  }
+  div.radio-button-component{
+    width:100%;
+  }
+  div.results{
+    margin-right: 200px;
+  }
+}
+
+@media (max-width:768px){
+  div.side-filter{
+    top:0;
+    width:100%;
+    height:180px;
+    padding: 1rem;
+  }
+  div.radio-button-container{
+    flex-direction: row;
+  }
+  div.radio-button-component{
+    max-width:25%;
+  }
+  div.results{
+    margin: 200px 0 0 0 ;
+  }
+  button.to-the-top-button{
+    display:none;
+  }
+}
